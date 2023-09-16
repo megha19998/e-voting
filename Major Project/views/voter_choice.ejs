@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap" rel="stylesheet">  <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Monda:wght@700&family=Squada+One&display=swap" rel="stylesheet"> 
+   
+	
+    <style>
+      .c1{
+       position: absolute;
+       font-size: 20px;
+       top: 30%;
+       left: 20%;
+       width: 400px;
+       height: 300px;
+       background-color: #d8d9da;
+       transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+       cursor: pointer;
+   }
+   .c2{
+       position: absolute;
+       font-size: 20px;
+       top: 30%;
+       left: 60%;
+       width: 400px;
+       height: 300px;
+       background-color: #d8d9da;
+       transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+       cursor: pointer;
+   }
+   .im1{
+     width:100%;
+     height: 80%;
+   }
+   .card:hover{
+     transform: scale(1.05);
+     box-shadow: 0 6px 10px rgba(226, 221, 221, 0.63), 0 0 6px rgba(36, 34, 34, 0.342);
+}
+  .button2{
+    margin-right: 25px;
+    font-size: medium;
+  }
+  .bb{
+    margin-right: 30%;
+  }
+  span{
+    margin-left: 35%;
+  }
+   </style>
+    <title>Document</title>
+   
+</head>
+<nav class="navbar navbar-light" style="background-color: #36c8bed5;">
+  <a class="navbar-brand" href="#">
+    <img src="images/vote_icon.jpg" width="52" height="52" class="d-inline-block align-top" alt="">
+    <span >	BLOCK BALLOT</span>
+  </a>
+  </nav>
+
+<body >
+    <h1 style="text-align: center;text-shadow: 1px 1px; color:aliceblue; font-family: 'Monda', sans-serif;">Welcome</h1>
+   
+    <div class="card-deck">
+      <div class="card c1" style="width: 18rem;">
+        <img class="card-img-top im1" src="images/Register-Button.jpg" alt="Card image cap"/>
+        <div class="card-body">
+          <form action='/apply' method='GET'>
+            <button class="button button2">Register for an Election</button>
+          </form>
+        </div>
+      </div>  
+      <div class="card c2" style="width: 18rem;">
+        <img class="card-img-top im1" src="images/vote_now.jpg" alt="Card image cap"/>
+        <div class="card-body">
+          <form action='/homepage' method='GET'>
+              <button class="button button2 bb">Vote Now</button>
+        </form>
+      </div>
+    </div> 
+   </div>
+</body>
+
+</html>

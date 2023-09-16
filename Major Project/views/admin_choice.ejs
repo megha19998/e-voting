@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap" rel="stylesheet">  <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Monda:wght@700&family=Squada+One&display=swap" rel="stylesheet"> 
+    <style>
+      .c1{
+       position: absolute;
+       font-size: 20px;
+       top: 30%;
+       left: 10%;
+       width: 400px;
+       height: 300px;
+       background-color: #d8d9da;
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+   }
+   .c2{
+       position: absolute;
+       font-size: 20px;
+       top: 30%;
+       left: 40%;
+       width: 400px;
+       height: 300px;
+       background-color: #d8d9da;
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+   }
+   .c3{
+       position: absolute;
+       font-size: 20px;
+       top: 30%;
+       left: 70%;
+       width: 400px;
+       height: 300px;
+       background-color: #d8d9da;
+       
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+   
+   }
+   .img1{
+     width:100%;
+     height: 75%;
+   }
+   .button2{
+     font-size: large;
+     margin-right: 20%;
+   }
+   .bb{
+    margin-right: 15%;
+   }
+   .card:hover{
+     transform: scale(1.05);
+     box-shadow: 0 6px 10px rgba(226, 221, 221, 0.63), 0 0 6px rgba(36, 34, 34, 0.342);
+}
+span{
+    color:#1F2833;   font-family: 'Monda', sans-serif;  font-family: 'Squada One', cursive;
+    font-size: 60px;
+    margin-left: 125%;}
+   </style>
+  <title>Document</title>
+   
+</head>
+
+<body>
+  <nav class="navbar navbar-light" style="background-color: #36c8bed5;">
+		<a class="navbar-brand" href="#">
+			<img src="images/vote_icon.jpg" width="52" height="52" class="d-inline-block align-top" alt="">
+		  <span id="sp" >	BLOCK BALLOT</span>
+		</a>
+	  </nav>
+    <h1 style="text-align: center;text-shadow: 1px 1px; color:aliceblue; font-size: 40px; font-family: 'Monda', sans-serif;">Admin Portal</h1>
+   
+      <div class="card-deck">
+      <div class="card c1" style="width: 18rem;">
+        <img class="card-img-top img1" src="images/add_election.jpg" alt="Card image cap"/>
+        <div class="card-body">
+          <form action='/admin_add_elections' method='GET'>
+              <button class="button button2">Add Elections</button>                
+          </form>
+        </div>
+      </div>
+    
+      <div class="card c2" style="width: 18rem;">
+        <img class="card-img-top img1" src="images/show_election.jpg" alt="Card image cap"/>
+        <div class="card-body">
+        <form action='/show_elections' method='GET'>
+            <button class="button button2">Show Elections</button>
+        </form>
+      </div>
+    </div>  
+      <div class="card c3" style="width: 18rem;">
+        <img class="card-img-top img1" src="images/application_review.jpg" alt="Card image cap"/>
+        <div class="card-body">
+        <form action='/review_application' method='GET'>
+          <button class="button button2 bb">Review Applications</button>
+         </form>
+    </div>
+  </div>
+  </div>
+</div>
+</body>
+
+</html>

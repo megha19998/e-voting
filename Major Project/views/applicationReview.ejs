@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap" rel="stylesheet">  <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Monda:wght@700&family=Squada+One&display=swap" rel="stylesheet"> 
+   
+    <title>Document</title>
+    <style>
+    h1{
+      color: #d4d5d6;
+      margin-top: 2%;
+      margin-bottom: 2%;
+      text-align: center;
+      font-family: 'Monda', sans-serif;
+    }
+      table {
+        width:100%;
+      }
+      table, th, td {
+        border: 1px solid #0f5f5ad5;
+        border-collapse: collapse;
+      }
+      #s{
+          padding:0px;
+          border: 1px solid #0f5f5ad5;
+      }
+      th, td {
+        padding: 15px;
+        text-align: left;
+      }
+      #t01 tr:nth-child(even) {
+        background-color: #eee;
+      }
+      #t01 tr:nth-child(odd) {
+       background-color: #fff;
+      }
+      #t01 th {
+        background-color:#0f5f5ad5;
+        color: white;
+      }
+      .bb{
+        background-color:#444444;
+        color: white;
+      }
+      </style>
+         <script language="JavaScript">
+        // function myFunction() {
+        //   //  window.location.reload();
+        // }
+    </script>
+</head>
+<body>
+  <nav class="navbar navbar-light" style="background-color: #36c8bed5;">
+		<a class="navbar-brand" href="#">
+			<img src="images/vote_icon.jpg" width="52" height="52" class="d-inline-block align-top" alt="">
+		  <span >	BLOCK BALLOT</span>
+		</a>
+	  </nav>
+    <h1> Candiate Applications</h1>
+<table id=t01 style="margin-left:5%; width:90%">
+    <tr>
+        <th>Candidate Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Election Id</th>
+        <th>Application Statua</th>
+    </tr>
+    <% for(var i = candidates.length-1; i >=0 ; i--) {%>
+    <tr>
+      <td><%= candidates[i].id %></td>
+      <td><%= candidates[i].name %></td>
+      <td><%= candidates[i].email %></td>
+      <td><%= candidates[i].electionId %></td>
+      <td style="text-align: center;">
+        <% if(candidates[i].applicationStatus==0) {%>
+        <form action='/approved' method='POST'>
+              <button style="text-align: center;" class="btn btn-primary" type="submit" name="candidateId" id="status_accept" value=<%= candidates[i].id %>>Accept</button>
+        </form>
+        <form action='/rejected' method='POST' >
+              <button style="text-align: center;" class="btn btn-primary" type="submit" name="candidateId" id="status_reject" value=<%= candidates[i].id %>>Reject</button>
+        </form>
+       <% } else if(candidates[i].applicationStatus==1){ %>
+             <button style="text-align: center;" class="btn btn-primary" disabled>ACCEPTED</button>
+        <% } else{  %>  
+             <button style="text-align: center;" class="btn btn-primary" disabled>REJECTED</button>
+        <% } %>   
+
+    </th>
+    </tr>
+    <% } %>
+    
+  </table>
+
+</body>
+</html>

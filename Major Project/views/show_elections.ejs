@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap" rel="stylesheet">  <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Monda:wght@700&family=Squada+One&display=swap" rel="stylesheet"> 
+   
+    <title>Document</title>
+    <style>
+      h1{
+        color: white;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        text-align: center;
+        font-family: 'Monda', sans-serif;
+      }
+        table {
+          width:100%;
+        }
+        table, th, td {
+          border: 1px solid #0f5f5ad5;
+          border-collapse: collapse;
+        }
+        #s{
+            padding:0px;
+            border: 1px solid #0f5f5ad5;
+        }
+        th, td {
+          padding: 15px;
+          text-align: left;
+        }
+        #t01 tr:nth-child(even) {
+          background-color: #eee;
+        }
+        #t01 tr:nth-child(odd) {
+         background-color: #fff;
+        }
+        #t01 th {
+          background-color:#0f5f5ad5;
+          color: white;
+        }
+        </style>
+    <!---<script language="JavaScript">
+        function changeStatus() {
+            var btn=document.getElementById("status");
+            if(btn.innerHTML=="UpComing")
+            {
+                document.getElementById("status").innerHTML="Active";
+                //btn.setAttribute('value','Active');
+            }
+            else
+            {
+                document.getElementById("status").innerHTML="Finish";
+                document.getElementById("status").setAttribute('clickable')=false;
+                //btn.setAttribute('value','Finish');
+                //btn.setAttribute('clickable',false);
+            }
+        }
+    </script>--->
+    <script language="JavaScript">
+      function changeStatus() {
+          window.location.reload();
+      }
+  </script>
+
+</head>
+<body>
+  <nav class="navbar navbar-light" style="background-color: #36c8bed5;">
+		<a class="navbar-brand" href="#">
+			<img src="images/vote_icon.jpg" width="52" height="52" class="d-inline-block align-top" alt="">
+		  <span >	BLOCK BALLOT</span>
+		</a>
+	  </nav>
+    <h1 >List of Elections</h1>
+    <form action='' method="POST">
+        <table id=t01 style="margin-left:5%; width:90%">
+            <tr>
+                <th>Subject</th>
+                <th>Details</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Candidates</th>
+                <th>Status</th>
+            </tr>
+            <% for(var i = voting_lines.length-1; i >=0 ; i--) {%>
+            <tr>
+              <td><%= voting_lines[i].subject %></td>
+              <td><%= voting_lines[i].description %></td>
+              <td><%= voting_lines[i].startDate %></td>
+              <td><%= voting_lines[i].endDate %></td>
+              <td>
+                  <table>
+                    <% var count=0; %>
+                <% for(var j=0;j<candidates.length;j++) {%>
+                  <% if(candidates[j].electionId==voting_lines[i].id && candidates[j].applicationStatus==1 ){%> 
+                    <tr><%= count+1%>. <%=candidates[j].name %></tr>
+                    <% count++; %>
+                  </br>
+                  <% } %>
+                  <% } %>
+              </table>
+            </td>
+              
+              <td style="text-align: center;"><button <%if(count<=1) {%> disabled=true <%}%> style="text-align: center;" type="submit" name="status" id="status"onclick=changeStatus() value=<%= voting_lines[i].Subject %>+<%=voting_lines[i].status%>+<%=i%>>
+                <%if (voting_lines[i].status==0) {%> UpComing <% } %>
+                <%if (voting_lines[i].status==1) {%> Active <% } %>
+                <%if (voting_lines[i].status==2) {%> Finish <% } %></button></th>
+            </tr>
+            <% } %>
+            
+          </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script language="JavaScript">
+        function showInput() {
+            var count=parseInt(document.getElementById("user_input").value);
+            for(i=0;i<count;i++)
+            {
+                console.log(i);
+                var txt = document.createElement('input');
+                txt.setAttribute("type", 'text');
+                txt.setAttribute("name", 'name'+count);
+                //select element in which you want to append textbox
+                var foo = document.getElementById("fooBar")
+                foo.appendChild(txt);
+                var brk=document.createElement('br');
+                foo.appendChild(brk);
+            }
+        }
+    </script>
+</head>
+<body>
+    <iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>
+    <h1>Enter The Details</h1>
+    <form action="/adminPortal" method="POST" class="login_details" target='hiddenFrame'>
+      <dev id="fooBar">
+
+      Subject : 
+      <br>
+      <input type="text" placeholder="Images EB Elections" name="Subject">
+      <br>
+      Details : 
+      <br>
+      <textarea name="Details" placeholder="This is for 27th EB Elections...." rows="4" cols="50"></textarea>
+      <br>
+      Start Date : <input type="date" placeholder="Start Date" name="sdate">
+      End Date : <input type="date" placeholder="End Date" name="edate">
+      <br>
+      No of Candidates : 
+      <br> 
+      <input type="text" placeholder="." name="candidatesNo" id='user_input'>
+      <input type="button" value="click" onclick=showInput()>
+      <br>
+      </dev>
+      <br> 
+      <button type="submit" placeholder="submit">Add Voting Details</button>
+      </form>
+</body>
+
+</html>
